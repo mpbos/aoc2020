@@ -31,18 +31,9 @@ int main()
             // Get the password
             string password = line;
 
-            // Find how many times the letter is in the password
-            int count = 0;
-            for (auto c : password)
-            {
-                if (c == letter[0])
-                    count++;
-            }
-
-            // If the letter is in the password the correct amount of times, the password is valid
-            if (count >= lowest && count <= highest)
+            // If the lowest is the right letter, while the highest is not (or the other way around)
+            if ((password[lowest-1] == letter[0]) != (password[highest-1] == letter[0]))
                 valid++;
-
         }
         myfile.close();
     }
